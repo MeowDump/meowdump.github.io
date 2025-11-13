@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support 𝗠𝗘𝗢𝗪𝗻𝗮 💅</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #111827);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 25px 0;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #facc15;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      animation: slideDown 0.8s ease;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
+      padding: 30px 20px;
+      animation: fadeInUp 1s ease;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+    }
+    em {
+      font-size: 15px;
+      color: #d1d5db;
+    }
+    .desc {
+      margin-top: 8px;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+    h3 {
+      margin-top: 25px;
+      color: #facc15;
+      font-size: 20px;
+    }
+    .crypto-option {
+      margin-top: 25px;
+      transition: transform 0.3s ease;
+    }
+    .crypto-option:hover {
+      transform: scale(1.03);
+    }
+    .crypto-logo {
+      width: 40px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    .label {
+      display: inline-block;
+      font-weight: 500;
+      color: #fef9c3;
+    }
+    .address-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.1);
+      padding: 10px 15px;
+      border-radius: 12px;
+      margin-top: 10px;
+      font-family: monospace;
+      font-size: 14px;
+      color: #a5b4fc;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .address-box:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .address-text {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 80%;
+      user-select: none;
+    }
+    button.copy-btn {
+      background: #facc15;
+      border: none;
+      color: #111;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    button.copy-btn:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 13px;
+      color: #9ca3af;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>🤝 Support the Creator</header>
+  <main>
+    <div class="card">
+      <em>Only donate if you're earning.</em>
+      <p class="desc">Students and unemployed supporters, your kindness is more than enough.</p>
+      <h3>🪙 Donate via USDT (Crypto)</h3>
+      <div class="crypto-option">
+        <img src="https://raw.githubusercontent.com/VadimMalykhin/binance-icons/main/crypto/busd.svg" class="crypto-logo" alt="TRC20">
+        <span class="label">TRC20 Address</span>
+        <div class="address-box" id="trc20" onclick="copyAddress('trc20')">
+          <span class="address-text">TCfhyVTfJDw8gHQT8Ph7DknNgie6ZAH5Bt</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+      </div>
+      <div class="crypto-option">
+        <img src="https://raw.githubusercontent.com/VadimMalykhin/binance-icons/main/crypto/busd.svg" class="crypto-logo" alt="BEP20">
+        <span class="label">BEP20 Address</span>
+        <div class="address-box" id="bep20" onclick="copyAddress('bep20')">
+          <span class="address-text">0x6b3f76339f2953db765dd2fb305784643e7d49df</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>© 2025 Meowna | All Rights Reserved</footer>
+  <script>
+    function copyAddress(id) {
+      const box = document.getElementById(id);
+      const text = box.querySelector(".address-text").textContent.trim();
+      navigator.clipboard.writeText(text);
+      const btn = box.querySelector(".copy-btn");
+      btn.textContent = "Copied!";
+      setTimeout(() => btn.textContent = "Copy", 1500);
+    }
+  </script>
+</body>
+</html>
