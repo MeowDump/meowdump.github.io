@@ -2,320 +2,486 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Support</title>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg1: #0f172a;
-  --bg2: #1e293b;
-  --card: rgba(30, 41, 59, 0.8);
-  --accent: #6366f1;
-  --accent2: #8b5cf6;
-  --accent-glow: rgba(99, 102, 241, 0.15);
-  --text: #e2e8f0;
-  --sub: #94a3b8;
+  --bg: #0a0a0f;
+  --surface: #111118;
+  --surface-raised: #181820;
+  --border: rgba(255,255,255,0.04);
+  --border-hover: rgba(255,255,255,0.08);
+  --text: #f5f5f7;
+  --text-muted: #6b6b7b;
+  --text-dim: #4a4a5a;
+  --accent-warm: #c9a96e;
+  --success: #5c9c6e;
+  --font: 'DM Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99,102,241,0.12), transparent),
-              linear-gradient(180deg, var(--bg1), var(--bg2));
+  font-family: var(--font);
+  background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  padding-bottom: 40px;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
 }
 
-.header {
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--text-dim); border-radius: 3px; }
+
+.hero {
   position: relative;
-  padding: 48px 20px 32px;
+  padding: 56px 24px 32px;
   text-align: center;
   overflow: hidden;
 }
 
-.header::before {
+.hero::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: 50%;
+  top: -200px; left: 50%;
   transform: translateX(-50%);
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(99,102,241,0.2), transparent 70%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(201,169,110,0.06), transparent 60%);
   pointer-events: none;
 }
 
-.heart-pulse {
-  font-size: 52px;
-  display: inline-block;
-  animation: pulse 2s ease-in-out infinite;
-  margin-bottom: 12px;
-  filter: drop-shadow(0 0 20px rgba(99,102,241,0.4));
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-}
-
-.header h1 {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.header p {
-  margin: 8px 0 0;
-  color: var(--sub);
-  font-size: 14px;
-}
-
-.stats-row {
-  display: flex;
-  gap: 12px;
-  padding: 0 20px;
-  margin-bottom: 24px;
-  max-width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.stat-pill {
-  flex: 1;
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 14px;
-  padding: 14px 8px;
-  text-align: center;
-  backdrop-filter: blur(10px);
-}
-
-.stat-pill .num {
-  font-size: 22px;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.stat-pill .lbl {
-  font-size: 11px;
-  color: var(--sub);
-  margin-top: 2px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.wrapper {
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.section-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 14px;
-  padding-left: 4px;
-}
-
-.section-label .line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(99,102,241,0.3), transparent);
-}
-
-.section-label span {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--accent);
-}
-
-.card {
-  background: var(--card);
-  border-radius: 20px;
-  padding: 0;
-  margin-bottom: 14px;
-  border: 1px solid rgba(255,255,255,0.06);
-  backdrop-filter: blur(20px);
-  overflow: hidden;
-  position: relative;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(99, 102, 241, 0.25);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.12), 0 0 0 1px rgba(99, 102, 241, 0.08);
-}
-
-.card:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.card-top {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 16px 12px;
-}
-
-.icon-ring {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+.hero-avatar {
+  width: 80px; height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, var(--surface-raised), var(--surface));
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  flex-shrink: 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03);
 }
 
-.icon-ring::after {
+.hero-avatar .material-icons-round {
+  font-size: 32px;
+  color: var(--accent-warm);
+}
+
+.hero h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.hero h1 span {
+  color: var(--accent-warm);
+  font-weight: 500;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+.featured {
+  background: linear-gradient(145deg, var(--surface-raised), var(--surface));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured::before {
   content: '';
   position: absolute;
-  inset: -2px;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,169,110,0.3), transparent);
+}
+
+.featured-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-warm);
+  margin-bottom: 16px;
+}
+
+.featured-qr {
+  width: 160px; height: 160px;
+  margin: 0 auto 20px;
   border-radius: 16px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  opacity: 0.3;
-  z-index: -1;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: white;
+  padding: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-.icon-ring .material-icons {
-  font-size: 22px;
-  color: white;
+.featured-qr:hover {
+  transform: scale(1.02);
 }
 
-.card-info {
-  flex: 1;
-  min-width: 0;
+.featured-qr:active {
+  transform: scale(0.98);
 }
 
-.card-title {
-  font-size: 15px;
-  font-weight: 600;
-  margin: 0;
-  letter-spacing: -0.2px;
-}
-
-.card-sub {
-  font-size: 12px;
-  color: var(--sub);
-  margin-top: 2px;
-}
-
-.qr-wrap {
-  padding: 0 16px 12px;
-}
-
-.qr {
-  width: 100%;
-  max-width: 200px;
-  margin: 0 auto;
+.featured-qr img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
   display: block;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.08);
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
-.addr-bar {
+.featured-title {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.featured-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.featured-address {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 0 16px 16px;
-  background: rgba(15, 23, 42, 0.6);
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 4px 4px 4px 14px;
-  border: 1px solid rgba(255,255,255,0.05);
+  padding: 4px 4px 4px 16px;
 }
 
-.addr-text {
+.featured-address .addr {
   flex: 1;
+  font-family: var(--font-mono);
   font-size: 12px;
-  font-family: 'SF Mono', 'Courier New', monospace;
-  color: var(--sub);
+  color: var(--text-muted);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.2px;
 }
 
-.copy-btn {
-  border: none;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: white;
-  border-radius: 10px;
-  padding: 10px 14px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.grid-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 16px;
   cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.grid-item:hover {
+  background: var(--surface-raised);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.grid-item:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.grid-item .icon {
+  width: 65px; height: 65px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
+  justify-content: center;
+  margin: 0 auto 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.grid-item .icon .material-icons-round {
+  font-size: 60px;
+}
+
+.grid-item .name {
+  font-size: 14px;
   font-weight: 600;
-  transition: all 0.2s;
-  flex-shrink: 0;
+  margin-bottom: 4px;
 }
 
-.copy-btn:hover {
-  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
-  transform: translateY(-1px);
+.grid-item .net {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-weight: 500;
 }
 
-.copy-btn:active {
-  transform: scale(0.95);
+.btn {
+  border: none;
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
-.copy-btn .material-icons {
-  font-size: 16px;
-}
-
-.footer-note {
-  text-align: center;
-  padding: 24px 20px;
-  color: var(--sub);
+.btn-ghost {
+  padding: 10px 14px;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 10px;
+  border: 1px solid var(--border);
   font-size: 12px;
 }
 
-.footer-note .material-icons {
+.btn-ghost:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+}
+
+.btn-primary {
+  padding: 12px 18px;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.btn-primary:hover {
+  background: var(--accent-warm);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.footer {
+  text-align: center;
+  padding: 24px 20px 40px;
+  color: var(--text-dim);
+  font-size: 12px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.footer .material-icons-round {
   font-size: 14px;
   vertical-align: middle;
   margin-right: 4px;
-  color: var(--accent);
+  color: var(--text-muted);
+}
+
+/* ===== POPUP MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: linear-gradient(145deg, var(--surface-raised), var(--surface));
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 32px 28px;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+}
+
+.modal-overlay.show .modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.modal-icon {
+  width: 64px; height: 64px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(92,156,110,0.15), rgba(92,156,110,0.05));
+  border: 1px solid rgba(92,156,110,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.modal-icon .material-icons-round {
+  font-size: 32px;
+  color: var(--success);
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.modal-body {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.modal-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.modal-address {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  text-align: left;
+  position: relative;
+}
+
+.modal-address label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.modal-address .addr-text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  word-break: break-all;
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+  padding-right: 36px;
+}
+
+.modal-address .copy-mini {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-address .copy-mini:hover {
+  border-color: var(--border-hover);
+}
+
+.modal-address .copy-mini .material-icons-round {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.modal-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  border-radius: 14px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modal-btn:hover {
+  background: var(--accent-warm);
+}
+
+.modal-btn:active {
+  transform: scale(0.97);
+}
+
+.modal-btn .material-icons-round {
+  font-size: 18px;
 }
 
 .toast {
   position: fixed;
-  bottom: 28px;
+  bottom: 24px;
   left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: white;
-  padding: 12px 24px;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--surface-raised);
+  color: var(--text);
+  padding: 12px 20px;
   border-radius: 14px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  border: 1px solid var(--border);
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .toast.show {
@@ -323,184 +489,221 @@ body {
   transform: translateX(-50%) translateY(0);
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.toast .material-icons-round {
+  font-size: 16px;
+  color: var(--success);
 }
 
-.card {
-  animation: fadeUp 0.5s ease-out backwards;
+@media (max-width: 400px) {
+  .hero { padding: 40px 20px 24px; }
+  .hero h1 { font-size: 24px; }
+  .grid { gap: 8px; }
+  .grid-item { padding: 20px 12px; }
+  .grid-item .icon { width: 48px; height: 48px; }
+  .grid-item .icon .material-icons-round { font-size: 24px; }
+  .featured { padding: 20px; }
+  .modal-card { padding: 24px 20px; }
 }
+
+.coin-bnb .icon, .coin-bep20 .icon, .coin-binance .icon { color: #f0b90b; }
+.coin-btc .icon { color: #f7931a; }
+.coin-eth .icon { color: #627eea; }
+.coin-sol .icon { color: #9945ff; }
+.coin-ton .icon { color: #0088cc; }
+.coin-ltc .icon { color: #bfbbbb; }
+.coin-trc .icon { color: #ff060a; }
 </style>
+<base target="_blank">
+<base target="_blank">
 </head>
 
 <body>
 
-<div class="header">
-  <div class="heart-pulse">🤍</div>
-  <h1>Support</h1>
-  <p>Choose your preferred method to contribute</p>
+<div class="hero">
+  <div class="hero-avatar">
+    <span class="material-icons-round">volunteer_activism</span>
+  </div>
+  <h1>Support <span>My Work</span></h1>
+  <p>Tap any card to copy the address instantly. Tap the QR to save it.</p>
 </div>
 
-<div class="stats-row">
-  <div class="stat-pill">
-    <div class="num" id="methodCount">9</div>
-    <div class="lbl">Methods</div>
-  </div>
-  <div class="stat-pill">
-    <div class="num" id="cryptoCount">8</div>
-    <div class="lbl">Crypto</div>
-  </div>
-  <div class="stat-pill">
-    <div class="num">1</div>
-    <div class="lbl">Fiat</div>
-  </div>
-</div>
+<div class="content">
 
-<div class="wrapper">
-  <div class="section-label">
-    <span>Payment Methods</span>
-    <div class="line"></div>
-  </div>
-  <div id="list"></div>
-</div>
-
-<div class="footer-note">
-  <span class="material-icons">security</span>
-  All transactions are secure and anonymous
-</div>
-
-<div id="toast" class="toast">Copied to clipboard</div>
-
-<script>
-const toast = document.getElementById("toast");
-
-function popup(msg) {
-  toast.textContent = msg;
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 2000);
-}
-
-function copyText(text) {
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).then(() => popup("Copied to clipboard"));
-  } else {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand("copy");
-    ta.remove();
-    popup("Copied to clipboard");
-  }
-}
-
-const data = [
-  {
-    label: "Binance Pay ID",
-    sub: "Fast & Easy",
-    address: "69695263",
-    qr: "https://raw.githubusercontent.com/MeowDump/Integrity-Box/old/DUMP/binance.png",
-    icon: "payments"
-  },
-  {
-    label: "TRC20 USDT",
-    sub: "Tron Network",
-    address: "TCfhyVTfJDw8gHQT8Ph7DknNgie6ZAH5Bt",
-    icon: "currency_bitcoin"
-  },
-  {
-    label: "BEP20 USDT",
-    sub: "BNB Chain",
-    address: "0x6b3f76339f2953db765dd2fb305784643e7d49df",
-    icon: "token"
-  },
-  {
-    label: "BNB Smart Chain",
-    sub: "Native BNB",
-    address: "0x33a6b33b40d54e83d88ca6f2f1ae8532248316eb",
-    icon: "link"
-  },
-  {
-    label: "Bitcoin",
-    sub: "BTC Network",
-    address: "bc1pt4hc00jkgf75f7hhwkume4utwux2jqwc0343zsnxafvqp6zfmtqqu4htfu",
-    icon: "currency_bitcoin"
-  },
-  {
-    label: "Ethereum",
-    sub: "ERC20 / ETH",
-    address: "0x33a6b33b40d54e83d88ca6f2f1ae8532248316eb",
-    icon: "currency_exchange"
-  },
-  {
-    label: "Solana",
-    sub: "SOL Network",
-    address: "CJhhei8bAWt4HinNofqxydVCXcGX1afDNKN9hwi1LoGR",
-    icon: "bolt"
-  },
-  {
-    label: "TON",
-    sub: "The Open Network",
-    address: "UQD1ppd0dcSK73HPd9uPYAXLxmtRuNY9tzzUt8t4_Z9K0kKb",
-    icon: "send"
-  },
-  {
-    label: "LiteCoin",
-    sub: "LTC Network",
-    address: "ltc1q4nywcj2l06rkat0nzccr9xj8hq9zsvhlwau80h",
-    icon: "flash_on"
-  }
-];
-
-const list = document.getElementById("list");
-
-data.forEach((d, i) => {
-  const el = document.createElement("div");
-  el.className = "card";
-  el.style.animationDelay = (i * 0.06) + "s";
-
-  el.innerHTML = `
-    <div class="card-top">
-      <div class="icon-ring" style="background: linear-gradient(135deg, var(--accent), var(--accent2));">
-        <span class="material-icons">${d.icon}</span>
-      </div>
-      <div class="card-info">
-        <div class="card-title">${d.label}</div>
-        <div class="card-sub">${d.sub}</div>
-      </div>
+  <div class="featured">
+    <div class="featured-label">Quick Pay</div>
+    <div class="featured-qr" id="qr-wrap">
+      <img src="https://raw.githubusercontent.com/MeowDump/Integrity-Box/old/DUMP/binance.png" alt="QR" id="featured-qr-img">
     </div>
-
-    ${d.qr ? `<div class="qr-wrap"><img src="${d.qr}" class="qr" alt="${d.label} QR"></div>` : ""}
-
-    <div class="addr-bar">
-      <span class="addr-text">${d.address}</span>
-      <button class="copy-btn" data="${d.address}">
-        <span class="material-icons">content_copy</span>
+    <div class="featured-title">Binance Pay</div>
+    <div class="featured-sub">Scan or copy the ID below</div>
+    <div class="featured-address">
+      <span class="addr">69695263</span>
+      <button class="btn btn-ghost copy-btn" data="69695263">
+        <span class="material-icons-round" style="font-size:14px">content_copy</span>
         Copy
       </button>
     </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+</div>
+
+<div class="footer">
+  <span class="material-icons-round">shield</span>
+  Secure & Anonymous Transactions
+</div>
+
+<div class="toast" id="toast">
+  <span class="material-icons-round">check_circle</span>
+  <span id="toast-text">Copied</span>
+</div>
+
+<!-- POPUP MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-card">
+    <div class="modal-icon">
+      <span class="material-icons-round">check_circle</span>
+    </div>
+    <div class="modal-title" id="modal-title">Address Copied</div>
+    <div class="modal-body" id="modal-body">
+      The <strong id="modal-coin">Bitcoin</strong> address has been copied to your clipboard.<br><br>
+      Open your wallet or exchange app and paste it to send funds.
+    </div>
+    <div class="modal-address">
+      <label>Wallet Address</label>
+      <div class="addr-text" id="modal-addr">bc1q...</div>
+      <div class="copy-mini" id="modal-copy-btn" title="Copy again">
+        <span class="material-icons-round">content_copy</span>
+      </div>
+    </div>
+    <button class="modal-btn" id="modal-close">
+      <span class="material-icons-round">done</span>
+      Got it
+    </button>
+  </div>
+</div>
+
+<script>
+const data = [
+  { id: 'trc20', label: 'USDT', sub: 'TRC20', address: 'TCfhyVTfJDw8gHQT8Ph7DknNgie6ZAH5Bt', icon: 'currency_bitcoin', cls: 'coin-trc' },
+  { id: 'bep20', label: 'USDT', sub: 'BEP20', address: '0x6b3f76339f2953db765dd2fb305784643e7d49df', icon: 'token', cls: 'coin-bep20' },
+  { id: 'bnb', label: 'BNB', sub: 'BSC', address: '0x33a6b33b40d54e83d88ca6f2f1ae8532248316eb', icon: 'link', cls: 'coin-bnb' },
+  { id: 'btc', label: 'Bitcoin', sub: 'BTC', address: 'bc1pt4hc00jkgf75f7hhwkume4utwux2jqwc0343zsnxafvqp6zfmtqqu4htfu', icon: 'currency_bitcoin', cls: 'coin-btc' },
+  { id: 'eth', label: 'Ethereum', sub: 'ERC20', address: '0x33a6b33b40d54e83d88ca6f2f1ae8532248316eb', icon: 'currency_exchange', cls: 'coin-eth' },
+  { id: 'sol', label: 'Solana', sub: 'SOL', address: 'CJhhei8bAWt4HinNofqxydVCXcGX1afDNKN9hwi1LoGR', icon: 'bolt', cls: 'coin-sol' },
+  { id: 'ton', label: 'TON', sub: 'TON Chain', address: 'UQD1ppd0dcSK73HPd9uPYAXLxmtRuNY9tzzUt8t4_Z9K0kKb', icon: 'send', cls: 'coin-ton' },
+  { id: 'ltc', label: 'Litecoin', sub: 'LTC', address: 'ltc1q4nywcj2l06rkat0nzccr9xj8hq9zsvhlwau80h', icon: 'flash_on', cls: 'coin-ltc' }
+];
+
+const grid = document.getElementById('grid');
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modal-title');
+const modalBody = document.getElementById('modal-body');
+const modalCoin = document.getElementById('modal-coin');
+const modalAddr = document.getElementById('modal-addr');
+const modalCopyBtn = document.getElementById('modal-copy-btn');
+const modalClose = document.getElementById('modal-close');
+let lastCopied = '';
+let lastLabel = '';
+
+data.forEach((d, i) => {
+  const el = document.createElement('div');
+  el.className = `grid-item ${d.cls}`;
+  el.innerHTML = `
+    <div class="icon"><span class="material-icons-round">${d.icon}</span></div>
+    <div class="name">${d.label}</div>
+    <div class="net">${d.sub}</div>
   `;
-
-  list.appendChild(el);
+  el.addEventListener('click', () => {
+    copyText(d.address, d.label + ' address copied');
+    showModal(d.label, d.address, d.sub);
+  });
+  grid.appendChild(el);
 });
 
-document.addEventListener("click", e => {
-  const btn = e.target.closest(".copy-btn");
+function showModal(label, address, network) {
+  lastCopied = address;
+  lastLabel = label;
+  modalCoin.textContent = label + ' (' + network + ')';
+  modalAddr.textContent = address;
+  modal.classList.add('show');
+}
+
+function hideModal() {
+  modal.classList.remove('show');
+}
+
+modal.addEventListener('click', e => {
+  if (e.target === modal) hideModal();
+});
+
+modalClose.addEventListener('click', () => {
+  hideModal();
+});
+
+modalCopyBtn.addEventListener('click', () => {
+  copyText(lastCopied, 'Copied again');
+});
+
+// click QR to download
+document.getElementById('qr-wrap').addEventListener('click', function(e) {
+  e.preventDefault();
+  const img = document.getElementById('featured-qr-img');
+  fetch(img.src)
+    .then(r => r.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'binance-pay-qr.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+      showToast('QR saved');
+    })
+    .catch(() => {
+      const a = document.createElement('a');
+      a.href = img.src;
+      a.download = 'binance-pay-qr.png';
+      a.target = '_blank';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast('QR saved');
+    });
+});
+
+// Copy handler
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.copy-btn');
   if (!btn) return;
-
-  const text = btn.getAttribute("data");
-  copyText(text);
-
-  const original = btn.innerHTML;
-  btn.innerHTML = `<span class="material-icons">check</span>Done`;
-  btn.style.background = "linear-gradient(135deg, #22c55e, #16a34a)";
-
-  setTimeout(() => {
-    btn.innerHTML = original;
-    btn.style.background = "";
-  }, 1500);
+  copyText(btn.getAttribute('data'), 'Copied to clipboard');
 });
+
+const toast = document.getElementById('toast');
+const toastText = document.getElementById('toast-text');
+
+function copyText(text, msg) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => showToast(msg));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+    showToast(msg);
+  }
+}
+
+function showToast(msg) {
+  toastText.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2000);
+}
 </script>
 
 </body>
