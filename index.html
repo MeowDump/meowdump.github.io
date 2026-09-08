@@ -1,27 +1,46 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Support</title>
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
-  --bg: #0a0a0f;
-  --surface: #111118;
-  --surface-raised: #181820;
-  --border: rgba(255,255,255,0.04);
-  --border-hover: rgba(255,255,255,0.08);
-  --text: #f5f5f7;
-  --text-muted: #6b6b7b;
-  --text-dim: #4a4a5a;
-  --accent-warm: #c9a96e;
+  --bg: #0f172a;
+  --surface: #111c31;
+  --surface-raised: #17243d;
+  --surface-hover: #1b2a45;
+  --border: rgba(148, 163, 184, 0.09);
+  --border-hover: rgba(96, 165, 250, 0.22);
+
+  --text: #f4f7fb;
+  --text-muted: #8b9ab2;
+  --text-dim: #61708a;
+
+  --blue: #3b82f6;
+  --blue-light: #60a5fa;
+  --blue-soft: #93c5fd;
+  --blue-dark: #2563eb;
+
   --success: #5c9c6e;
-  --font: 'DM Sans', -apple-system, sans-serif;
+
+  --font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+}
+
+html {
+  background: var(--bg);
 }
 
 body {
@@ -29,17 +48,30 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--text-dim); border-radius: 3px; }
+button {
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #263754;
+  border-radius: 10px;
+}
 
 .hero {
   position: relative;
-  padding: 56px 24px 32px;
+  padding: 58px 24px 34px;
   text-align: center;
   overflow: hidden;
 }
@@ -47,149 +79,170 @@ body {
 .hero::before {
   content: '';
   position: absolute;
-  top: -200px; left: 50%;
+  width: 520px;
+  height: 260px;
+  left: 50%;
+  top: -210px;
   transform: translateX(-50%);
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(201,169,110,0.06), transparent 60%);
+  background: rgba(37, 99, 235, 0.07);
+  filter: blur(80px);
   pointer-events: none;
 }
 
 .hero-avatar {
-  width: 80px; height: 80px;
-  margin: 0 auto 20px;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 21px;
   border-radius: 24px;
-  background: linear-gradient(145deg, var(--surface-raised), var(--surface));
-  border: 1px solid var(--border);
+  background: linear-gradient(145deg, #172944, #111c31);
+  border: 1px solid rgba(96, 165, 250, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03);
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
 }
 
 .hero-avatar .material-icons-round {
-  font-size: 32px;
-  color: var(--accent-warm);
+  font-size: 34px;
+  color: var(--blue-light);
 }
 
 .hero h1 {
-  font-size: 28px;
+  font-size: 29px;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.7px;
   line-height: 1.2;
 }
 
 .hero h1 span {
-  color: var(--accent-warm);
-  font-weight: 500;
+  color: var(--blue-light);
+  font-weight: 600;
 }
 
 .hero p {
-  margin-top: 10px;
+  margin: 11px auto 0;
+  max-width: 300px;
   font-size: 14px;
   color: var(--text-muted);
-  line-height: 1.5;
-  max-width: 280px;
-  margin-left: auto;
-  margin-right: auto;
+  line-height: 1.55;
 }
 
 .content {
+  width: 100%;
   max-width: 520px;
   margin: 0 auto;
   padding: 0 20px 40px;
 }
 
 .featured {
-  background: linear-gradient(145deg, var(--surface-raised), var(--surface));
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 12px;
   position: relative;
   overflow: hidden;
+  margin-bottom: 12px;
+  padding: 25px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #17243d, #111c31);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
 }
 
 .featured::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 12%;
+  right: 12%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201,169,110,0.3), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(96, 165, 250, 0.5),
+    transparent
+  );
 }
 
 .featured-label {
+  margin-bottom: 17px;
+  color: var(--blue-light);
   font-size: 10px;
   font-weight: 700;
+  letter-spacing: 2.2px;
+  text-align: center;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--accent-warm);
-  margin-bottom: 16px;
 }
 
 .featured-qr {
-  width: 160px; height: 160px;
-  margin: 0 auto 20px;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: white;
+  width: 164px;
+  height: 164px;
+  margin: 0 auto 21px;
   padding: 8px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(148, 163, 184, 0.2);
   cursor: pointer;
-  transition: transform 0.2s;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
 }
 
 .featured-qr:hover {
-  transform: scale(1.02);
+  transform: translateY(-2px);
 }
 
 .featured-qr:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .featured-qr img {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
+  display: block;
   object-fit: cover;
   border-radius: 10px;
-  display: block;
   pointer-events: none;
-  -webkit-user-drag: none;
   user-select: none;
+  -webkit-user-drag: none;
 }
 
 .featured-title {
+  margin-bottom: 5px;
   font-size: 18px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 4px;
+  letter-spacing: -0.2px;
 }
 
 .featured-sub {
-  font-size: 13px;
-  color: var(--text-muted);
-  text-align: center;
   margin-bottom: 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: center;
 }
 
 .featured-address {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: var(--bg);
-  border: 1px solid var(--border);
+  padding: 4px 4px 4px 15px;
+  background: #0d1627;
+  border: 1px solid rgba(148, 163, 184, 0.08);
   border-radius: 14px;
-  padding: 4px 4px 4px 16px;
 }
 
 .featured-address .addr {
   flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: #8090aa;
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--text-muted);
-  overflow: hidden;
+  letter-spacing: -0.2px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  letter-spacing: -0.2px;
 }
 
 .grid {
@@ -199,127 +252,138 @@ body {
 }
 
 .grid-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px 16px;
-  cursor: pointer;
-  transition: all 0.25s ease;
   position: relative;
   overflow: hidden;
+  padding: 22px 16px 20px;
+  border-radius: 17px;
+  background: #111c31;
+  border: 1px solid var(--border);
   text-align: center;
+  cursor: pointer;
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease;
 }
 
 .grid-item:hover {
-  background: var(--surface-raised);
+  background: #17243d;
   border-color: var(--border-hover);
   transform: translateY(-2px);
 }
 
 .grid-item:active {
-  transform: translateY(0) scale(0.98);
+  transform: scale(0.98);
 }
 
 .grid-item .icon {
-  width: 65px; height: 65px;
-  border-radius: 16px;
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 14px;
-  background: var(--bg);
-  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #0d1627;
+  border: 1px solid rgba(96, 165, 250, 0.12);
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease;
+}
+
+.grid-item:hover .icon {
+  background: #13223a;
+  border-color: rgba(96, 165, 250, 0.2);
+  transform: translateY(-1px);
 }
 
 .grid-item .icon .material-icons-round {
-  font-size: 60px;
+  font-size: 37px;
+  color: var(--blue-light);
+}
+
+.grid-item .icon .dollar-icon {
+  color: var(--blue-light);
+  font-family: var(--font);
+  font-size: 39px;
+  font-weight: 600;
+  line-height: 1;
 }
 
 .grid-item .name {
+  margin-bottom: 5px;
+  color: #edf2f9;
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 4px;
 }
 
 .grid-item .net {
-  font-size: 11px;
   color: var(--text-dim);
+  font-size: 11px;
   font-weight: 500;
 }
 
 .btn {
-  border: none;
-  font-family: var(--font);
-  font-weight: 600;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  border: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .btn-ghost {
   padding: 10px 14px;
-  background: transparent;
-  color: var(--text-muted);
+  color: var(--blue-soft);
+  background: #162844;
+  border: 1px solid rgba(96, 165, 250, 0.13);
   border-radius: 10px;
-  border: 1px solid var(--border);
-  font-size: 12px;
 }
 
 .btn-ghost:hover {
-  border-color: var(--border-hover);
-  color: var(--text);
+  color: #bfdbfe;
+  background: #1b3152;
+  border-color: rgba(96, 165, 250, 0.25);
 }
 
-.btn-primary {
-  padding: 12px 18px;
-  background: var(--text);
-  color: var(--bg);
-  border-radius: 12px;
-  font-size: 12px;
-}
-
-.btn-primary:hover {
-  background: var(--accent-warm);
-}
-
-.btn-primary:active {
-  transform: scale(0.97);
+.btn-ghost:active {
+  transform: scale(0.96);
 }
 
 .footer {
-  text-align: center;
-  padding: 24px 20px 40px;
-  color: var(--text-dim);
-  font-size: 12px;
   max-width: 520px;
   margin: 0 auto;
+  padding: 24px 20px 42px;
+  color: var(--text-dim);
+  font-size: 12px;
+  text-align: center;
 }
 
 .footer .material-icons-round {
+  margin-right: 4px;
+  color: #60789c;
   font-size: 14px;
   vertical-align: middle;
-  margin-right: 4px;
-  color: var(--text-muted);
 }
 
-/* ===== POPUP MODAL ===== */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(8px);
   z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  background: rgba(4, 9, 20, 0.72);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
 .modal-overlay.show {
@@ -328,50 +392,66 @@ body {
 }
 
 .modal-card {
-  background: linear-gradient(145deg, var(--surface-raised), var(--surface));
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 32px 28px;
-  max-width: 340px;
-  width: 100%;
-  text-align: center;
   position: relative;
-  transform: scale(0.9) translateY(20px);
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 350px;
+  padding: 30px 27px;
+  border-radius: 23px;
+  background: linear-gradient(145deg, #17243d, #111c31);
+  border: 1px solid rgba(96, 165, 250, 0.15);
+  text-align: center;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+  transform: translateY(15px) scale(0.94);
+  transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.modal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(96, 165, 250, 0.5),
+    transparent
+  );
 }
 
 .modal-overlay.show .modal-card {
-  transform: scale(1) translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .modal-icon {
-  width: 64px; height: 64px;
-  border-radius: 20px;
-  background: linear-gradient(145deg, rgba(92,156,110,0.15), rgba(92,156,110,0.05));
-  border: 1px solid rgba(92,156,110,0.2);
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 19px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
+  border-radius: 19px;
+  background: #162844;
+  border: 1px solid rgba(96, 165, 250, 0.15);
 }
 
 .modal-icon .material-icons-round {
-  font-size: 32px;
-  color: var(--success);
+  color: var(--blue-light);
+  font-size: 31px;
 }
 
 .modal-title {
+  margin-bottom: 8px;
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 8px;
 }
 
 .modal-body {
-  font-size: 14px;
+  margin-bottom: 23px;
   color: var(--text-muted);
+  font-size: 14px;
   line-height: 1.6;
-  margin-bottom: 24px;
 }
 
 .modal-body strong {
@@ -380,78 +460,82 @@ body {
 }
 
 .modal-address {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 14px 16px;
-  margin-bottom: 20px;
-  text-align: left;
   position: relative;
+  margin-bottom: 19px;
+  padding: 14px 16px;
+  background: #0d1627;
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  border-radius: 14px;
+  text-align: left;
 }
 
 .modal-address label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--text-dim);
   font-size: 10px;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--text-dim);
-  display: block;
-  margin-bottom: 6px;
+  text-transform: uppercase;
 }
 
 .modal-address .addr-text {
+  padding-right: 36px;
+  color: #8191aa;
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--text-muted);
-  word-break: break-all;
   line-height: 1.5;
-  letter-spacing: -0.2px;
-  padding-right: 36px;
+  word-break: break-all;
 }
 
 .modal-address .copy-mini {
   position: absolute;
-  top: 10px; right: 10px;
-  width: 28px; height: 28px;
-  border-radius: 8px;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 9px;
+  background: #16243a;
+  border: 1px solid rgba(148, 163, 184, 0.08);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .modal-address .copy-mini:hover {
-  border-color: var(--border-hover);
+  background: #1b3152;
+  border-color: rgba(96, 165, 250, 0.2);
 }
 
 .modal-address .copy-mini .material-icons-round {
-  font-size: 14px;
-  color: var(--text-muted);
+  color: var(--blue-light);
+  font-size: 15px;
 }
 
 .modal-btn {
   width: 100%;
   padding: 14px;
-  background: var(--text);
-  color: var(--bg);
-  border: none;
-  border-radius: 14px;
-  font-family: var(--font);
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  border: 1px solid rgba(147, 197, 253, 0.18);
+  border-radius: 13px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.18);
+  transition: all 0.2s ease;
 }
 
 .modal-btn:hover {
-  background: var(--accent-warm);
+  background: linear-gradient(135deg, #4d91f7, #3275e8);
+  transform: translateY(-1px);
 }
 
 .modal-btn:active {
@@ -464,24 +548,25 @@ body {
 
 .toast {
   position: fixed;
-  bottom: 24px;
   left: 50%;
-  transform: translateX(-50%) translateY(80px);
-  background: var(--surface-raised);
-  color: var(--text);
-  padding: 12px 20px;
-  border-radius: 14px;
-  font-size: 13px;
-  font-weight: 600;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  border: 1px solid var(--border);
+  bottom: 24px;
   z-index: 1000;
   display: flex;
   align-items: center;
   gap: 8px;
+  padding: 12px 18px;
+  border-radius: 13px;
+  background: #17243d;
+  border: 1px solid rgba(96, 165, 250, 0.13);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(70px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .toast.show {
@@ -490,30 +575,81 @@ body {
 }
 
 .toast .material-icons-round {
-  font-size: 16px;
-  color: var(--success);
+  color: var(--blue-light);
+  font-size: 17px;
 }
 
 @media (max-width: 400px) {
-  .hero { padding: 40px 20px 24px; }
-  .hero h1 { font-size: 24px; }
-  .grid { gap: 8px; }
-  .grid-item { padding: 20px 12px; }
-  .grid-item .icon { width: 48px; height: 48px; }
-  .grid-item .icon .material-icons-round { font-size: 24px; }
-  .featured { padding: 20px; }
-  .modal-card { padding: 24px 20px; }
+  .hero {
+    padding: 42px 20px 27px;
+  }
+
+  .hero-avatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 22px;
+  }
+
+  .hero h1 {
+    font-size: 25px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .content {
+    padding: 0 16px 36px;
+  }
+
+  .featured {
+    padding: 21px;
+    border-radius: 20px;
+  }
+
+  .featured-qr {
+    width: 150px;
+    height: 150px;
+  }
+
+  .grid {
+    gap: 8px;
+  }
+
+  .grid-item {
+    padding: 20px 12px 18px;
+    border-radius: 16px;
+  }
+
+  .grid-item .icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 17px;
+  }
+
+  .grid-item .icon .material-icons-round {
+    font-size: 33px;
+  }
+
+  .grid-item .icon .dollar-icon {
+    font-size: 35px;
+  }
+
+  .modal-card {
+    padding: 25px 20px;
+    border-radius: 22px;
+  }
 }
 
-.coin-bnb .icon, .coin-bep20 .icon, .coin-binance .icon { color: #f0b90b; }
-.coin-btc .icon { color: #f7931a; }
-.coin-eth .icon { color: #627eea; }
-.coin-sol .icon { color: #9945ff; }
-.coin-ton .icon { color: #0088cc; }
-.coin-ltc .icon { color: #bfbbbb; }
-.coin-trc .icon { color: #ff060a; }
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
 </style>
-<base target="_blank">
+
 <base target="_blank">
 </head>
 
@@ -523,26 +659,45 @@ body {
   <div class="hero-avatar">
     <span class="material-icons-round">volunteer_activism</span>
   </div>
+
   <h1>Support <span>My Work</span></h1>
-  <p>Tap any card to copy the address instantly. Tap the QR to save it.</p>
+
+  <p>
+    Tap any card to copy the address instantly.
+    Tap the QR to save it.
+  </p>
 </div>
 
 <div class="content">
 
   <div class="featured">
     <div class="featured-label">Quick Pay</div>
-    <div class="featured-qr" id="qr-wrap">
-      <img src="https://raw.githubusercontent.com/MeowDump/Integrity-Box/old/DUMP/binance.png" alt="QR" id="featured-qr-img">
-    </div>
-    <div class="featured-title">Binance Pay</div>
-    <div class="featured-sub">Scan or copy the ID below</div>
-    <div class="featured-address">
-      <span class="addr">69695263</span>
-      <button class="btn btn-ghost copy-btn" data="69695263">
-        <span class="material-icons-round" style="font-size:14px">content_copy</span>
-        Copy
-      </button>
-    </div>
+
+<div class="featured-qr" id="qr-wrap">
+  <img
+    src="https://raw.githubusercontent.com/MeowDump/Integrity-Box/old/DUMP/binance.png"
+    alt="Binance Pay QR"
+    id="featured-qr-img"
+  >
+</div>
+
+<div class="featured-title">Binance Pay</div>
+
+<div class="featured-sub">
+  Scan or copy the ID below
+</div>
+
+<div class="featured-address">
+  <span class="addr">69695263</span>
+
+  <button class="btn btn-ghost copy-btn" data="69695263">
+    <span class="material-icons-round" style="font-size:14px">
+      content_copy
+    </span>
+    Copy
+  </button>
+</div>
+
   </div>
 
   <div class="grid" id="grid"></div>
@@ -550,8 +705,8 @@ body {
 </div>
 
 <div class="footer">
-  <span class="material-icons-round">shield</span>
-  Secure & Anonymous Transactions
+  <span class="material-icons-round">volunteer_activism</span>
+  Thanks for your support
 </div>
 
 <div class="toast" id="toast">
@@ -559,73 +714,174 @@ body {
   <span id="toast-text">Copied</span>
 </div>
 
-<!-- POPUP MODAL -->
 <div class="modal-overlay" id="modal">
+
   <div class="modal-card">
-    <div class="modal-icon">
-      <span class="material-icons-round">check_circle</span>
-    </div>
-    <div class="modal-title" id="modal-title">Address Copied</div>
-    <div class="modal-body" id="modal-body">
-      The <strong id="modal-coin">Bitcoin</strong> address has been copied to your clipboard.<br><br>
-      Open your wallet or exchange app and paste it to send funds.
-    </div>
-    <div class="modal-address">
-      <label>Wallet Address</label>
-      <div class="addr-text" id="modal-addr">bc1q...</div>
-      <div class="copy-mini" id="modal-copy-btn" title="Copy again">
-        <span class="material-icons-round">content_copy</span>
-      </div>
-    </div>
-    <button class="modal-btn" id="modal-close">
-      <span class="material-icons-round">done</span>
-      Got it
-    </button>
+
+<div class="modal-icon">
+  <span class="material-icons-round">check_circle</span>
+</div>
+
+<div class="modal-title" id="modal-title">
+  Address Copied
+</div>
+
+<div class="modal-body">
+  The
+  <strong id="modal-coin">Bitcoin</strong>
+  address has been copied to your clipboard.
+  <br><br>
+  Open your wallet or exchange app and paste it to send funds.
+</div>
+
+<div class="modal-address">
+
+  <label>Wallet Address</label>
+
+  <div class="addr-text" id="modal-addr">
+    bc1q...
   </div>
+
+  <div class="copy-mini" id="modal-copy-btn" title="Copy again">
+    <span class="material-icons-round">content_copy</span>
+  </div>
+
+</div>
+
+<button class="modal-btn" id="modal-close">
+  <span class="material-icons-round">done</span>
+  Got it
+</button>
+
+  </div>
+
 </div>
 
 <script>
 const data = [
-  { id: 'trc20', label: 'USDT', sub: 'TRC20', address: 'TCfhyVTfJDw8gHQT8Ph7DknNgie6ZAH5Bt', icon: 'currency_bitcoin', cls: 'coin-trc' },
-  { id: 'bep20', label: 'USDT', sub: 'BEP20', address: '0x6b3f76339f2953db765dd2fb305784643e7d49df', icon: 'token', cls: 'coin-bep20' },
-  { id: 'bnb', label: 'BNB', sub: 'BSC', address: '0x33a6b33b40d54e83d88ca6f2f1ae8532248316eb', icon: 'link', cls: 'coin-bnb' },
-  { id: 'btc', label: 'Bitcoin', sub: 'BTC', address: 'bc1pt4hc00jkgf75f7hhwkume4utwux2jqwc0343zsnxafvqp6zfmtqqu4htfu', icon: 'currency_bitcoin', cls: 'coin-btc' },
-  { id: 'eth', label: 'Ethereum', sub: 'ERC20', address: '0x33a6b33b40d54e83d88ca6f2f1ae8532248316eb', icon: 'currency_exchange', cls: 'coin-eth' },
-  { id: 'sol', label: 'Solana', sub: 'SOL', address: 'CJhhei8bAWt4HinNofqxydVCXcGX1afDNKN9hwi1LoGR', icon: 'bolt', cls: 'coin-sol' },
-  { id: 'ton', label: 'TON', sub: 'TON Chain', address: 'UQD1ppd0dcSK73HPd9uPYAXLxmtRuNY9tzzUt8t4_Z9K0kKb', icon: 'send', cls: 'coin-ton' },
-  { id: 'ltc', label: 'Litecoin', sub: 'LTC', address: 'ltc1q4nywcj2l06rkat0nzccr9xj8hq9zsvhlwau80h', icon: 'flash_on', cls: 'coin-ltc' }
+  {
+    id: 'trc20',
+    label: 'USDT',
+    sub: 'TRC20',
+    address: 'TCfhyVTfJDw8gHQT8Ph7DknNgie6ZAH5Bt',
+    icon: '$',
+    dollar: true,
+    cls: 'coin-trc'
+  },
+  {
+    id: 'bep20',
+    label: 'USDT',
+    sub: 'BEP20',
+    address: '0x6b3f76339f2953db765dd2fb305784643e7d49df',
+    icon: 'token',
+    cls: 'coin-bep20'
+  },
+  {
+    id: 'bnb',
+    label: 'BNB',
+    sub: 'BSC',
+    address: '0x33a6b33b40d54e83d88ca6f2f1ae8532248316eb',
+    icon: 'link',
+    cls: 'coin-bnb'
+  },
+  {
+    id: 'btc',
+    label: 'Bitcoin',
+    sub: 'BTC',
+    address: 'bc1pt4hc00jkgf75f7hhwkume4utwux2jqwc0343zsnxafvqp6zfmtqqu4htfu',
+    icon: 'currency_bitcoin',
+    cls: 'coin-btc'
+  },
+  {
+    id: 'eth',
+    label: 'Ethereum',
+    sub: 'ERC20',
+    address: '0x33a6b33b40d54e83d88ca6f2f1ae8532248316eb',
+    icon: 'currency_exchange',
+    cls: 'coin-eth'
+  },
+  {
+    id: 'sol',
+    label: 'Solana',
+    sub: 'SOL',
+    address: 'CJhhei8bAWt4HinNofqxydVCXcGX1afDNKN9hwi1LoGR',
+    icon: 'bolt',
+    cls: 'coin-sol'
+  },
+  {
+    id: 'ton',
+    label: 'TON',
+    sub: 'TON Chain',
+    address: 'UQD1ppd0dcSK73HPd9uPYAXLxmtRuNY9tzzUt8t4_Z9K0kKb',
+    icon: 'send',
+    cls: 'coin-ton'
+  },
+  {
+    id: 'ltc',
+    label: 'Litecoin',
+    sub: 'LTC',
+    address: 'ltc1q4nywcj2l06rkat0nzccr9xj8hq9zsvhlwau80h',
+    icon: 'flash_on',
+    cls: 'coin-ltc'
+  }
 ];
 
 const grid = document.getElementById('grid');
 const modal = document.getElementById('modal');
 const modalTitle = document.getElementById('modal-title');
-const modalBody = document.getElementById('modal-body');
 const modalCoin = document.getElementById('modal-coin');
 const modalAddr = document.getElementById('modal-addr');
 const modalCopyBtn = document.getElementById('modal-copy-btn');
 const modalClose = document.getElementById('modal-close');
-let lastCopied = '';
-let lastLabel = '';
+const toast = document.getElementById('toast');
+const toastText = document.getElementById('toast-text');
 
-data.forEach((d, i) => {
+let lastCopied = '';
+let toastTimer;
+
+data.forEach((d) => {
   const el = document.createElement('div');
+
   el.className = `grid-item ${d.cls}`;
+
+  const iconHTML = d.dollar
+    ? `<span class="dollar-icon">$</span>`
+    : `<span class="material-icons-round">${d.icon}</span>`;
+
   el.innerHTML = `
-    <div class="icon"><span class="material-icons-round">${d.icon}</span></div>
-    <div class="name">${d.label}</div>
-    <div class="net">${d.sub}</div>
+    <div class="icon">
+      ${iconHTML}
+    </div>
+
+    <div class="name">
+      ${d.label}
+    </div>
+
+    <div class="net">
+      ${d.sub}
+    </div>
   `;
+
   el.addEventListener('click', () => {
-    copyText(d.address, d.label + ' address copied');
-    showModal(d.label, d.address, d.sub);
+    copyText(
+      d.address,
+      d.label + ' address copied'
+    );
+
+    showModal(
+      d.label,
+      d.address,
+      d.sub
+    );
   });
+
   grid.appendChild(el);
 });
 
 function showModal(label, address, network) {
   lastCopied = address;
-  lastLabel = label;
-  modalCoin.textContent = label + ' (' + network + ')';
+  modalTitle.textContent = 'Address Copied';
+  modalCoin.textContent = `${label} (${network})`;
   modalAddr.textContent = address;
   modal.classList.add('show');
 }
@@ -634,75 +890,114 @@ function hideModal() {
   modal.classList.remove('show');
 }
 
-modal.addEventListener('click', e => {
-  if (e.target === modal) hideModal();
+modal.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    hideModal();
+  }
 });
 
-modalClose.addEventListener('click', () => {
-  hideModal();
-});
+modalClose.addEventListener('click', hideModal);
 
 modalCopyBtn.addEventListener('click', () => {
   copyText(lastCopied, 'Copied again');
 });
 
-// click QR to download
-document.getElementById('qr-wrap').addEventListener('click', function(e) {
-  e.preventDefault();
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && modal.classList.contains('show')) {
+    hideModal();
+  }
+});
+
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('.copy-btn');
+
+  if (!button) {
+    return;
+  }
+
+  event.stopPropagation();
+
+  copyText(
+    button.getAttribute('data'),
+    'Copied to clipboard'
+  );
+});
+
+document.getElementById('qr-wrap').addEventListener('click', async (event) => {
+  event.preventDefault();
+
   const img = document.getElementById('featured-qr-img');
-  fetch(img.src)
-    .then(r => r.blob())
-    .then(blob => {
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'binance-pay-qr.png';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
-      showToast('QR saved');
-    })
-    .catch(() => {
-      const a = document.createElement('a');
-      a.href = img.src;
-      a.download = 'binance-pay-qr.png';
-      a.target = '_blank';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      showToast('QR saved');
-    });
+
+  try {
+    const response = await fetch(img.src);
+
+    if (!response.ok) {
+      throw new Error('Download failed');
+    }
+
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+
+    link.href = url;
+    link.download = 'binance-pay-qr.png';
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    URL.revokeObjectURL(url);
+
+    showToast('QR saved');
+  } catch {
+    window.open(img.src, '_blank');
+    showToast('QR opened');
+  }
 });
 
-// Copy handler
-document.addEventListener('click', e => {
-  const btn = e.target.closest('.copy-btn');
-  if (!btn) return;
-  copyText(btn.getAttribute('data'), 'Copied to clipboard');
-});
-
-const toast = document.getElementById('toast');
-const toastText = document.getElementById('toast-text');
-
-function copyText(text, msg) {
+function copyText(text, message) {
   if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).then(() => showToast(msg));
+    navigator.clipboard
+      .writeText(text)
+      .then(() => showToast(message))
+      .catch(() => fallbackCopy(text, message));
   } else {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    ta.remove();
-    showToast(msg);
+    fallbackCopy(text, message);
   }
 }
 
-function showToast(msg) {
-  toastText.textContent = msg;
+function fallbackCopy(text, message) {
+  const textarea = document.createElement('textarea');
+
+  textarea.value = text;
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+
+  document.body.appendChild(textarea);
+
+  textarea.focus();
+  textarea.select();
+
+  try {
+    document.execCommand('copy');
+    showToast(message);
+  } catch {
+    showToast('Copy failed');
+  }
+
+  textarea.remove();
+}
+
+function showToast(message) {
+  toastText.textContent = message;
+
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 2000);
+
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2200);
 }
 </script>
 
